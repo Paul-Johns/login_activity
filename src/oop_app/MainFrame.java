@@ -5,6 +5,8 @@
  */
 package oop_app;
 import com.apple.eawt.Application;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
 import javax.swing.JOptionPane;
 /**
@@ -163,7 +165,12 @@ public class MainFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainFrame().setVisible(true);
+                MainFrame window = new MainFrame();
+                Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+                int width = window.getSize().width;
+                int height = window.getSize().height;
+                window.setLocation(dim.width/2 - width/2, dim.height/2-height/2);
+                window.setVisible(true);
             }
         });
     }
